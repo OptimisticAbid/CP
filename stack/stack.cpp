@@ -27,11 +27,12 @@ public:
 int main()
 {
     stackImp stack;
-    cout << "The element added is " << stack.push(10) << endl;
-    stack.push(5);
-    stack.push(15);
-    stack.push(20);
-    cout << stack.peek() << endl;
+    cout << "The elements added are " << endl;
+    cout << stack.push(10) << endl;
+    cout << stack.push(5) << endl;
+    cout << stack.push(15) << endl;
+    cout << stack.push(20) << endl;
+    cout << "The top elements is " << stack.peek() << endl;
     stack.pop(20);
     cout << stack.peek();
 
