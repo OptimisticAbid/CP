@@ -7,19 +7,35 @@ class stackImp
     int top = -1;
 
 public:
-    int push(int x)
+    bool push(int x)
     {
-        top = top + 1;
+        if (top >= 9)
+        {
+            cout << "Stack overflow! Cannot push " << x << endl;
+            return false;
+        }
+        top++;
         st[top] = x;
-        return x;
+        return true;
     }
-    int pop(int y)
+    int pop()
     {
-        top = top - 1;
-        return 0;
+        if (top < 0)
+        {
+            cout << "Stack underflow! Cannot pop" << endl;
+            return -1;
+        }
+        int popped = st[top];
+        top--;
+        return popped;
     }
     int peek()
     {
+        if (top < 0)
+        {
+            cout << "Stack is empty!" << endl;
+            return -1;
+        }
         return (st[top]);
     }
 };
@@ -32,8 +48,8 @@ int main()
     cout << stack.push(5) << endl;
     cout << stack.push(15) << endl;
     cout << stack.push(20) << endl;
-    cout << "The top elements is " << stack.peek() << endl;
-    stack.pop(20);
+    cout << "The top element is " << stack.peek() << endl;
+    stack.pop();
     cout << stack.peek();
 
     return 0;
